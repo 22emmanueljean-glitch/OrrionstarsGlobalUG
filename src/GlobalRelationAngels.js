@@ -123,52 +123,52 @@ const [activePage, setActivePage] = useState('home');
     {
       name: "Ravi Sharma",
       country: "INDIA",
-      text: "The team at Global Relations is exceptional in handling European work permits. They guided me through every step with clarity and professionalism. Their thorough approach, combined with deep knowledge of the immigration process, made all the difference. I'm extremely satisfied with the results and their unmatched service in international recruitment."
+      text: "The team at Orrionstars Global UG is exceptional in handling European work permits. They guided me through every step with clarity and professionalism. Their thorough approach, combined with deep knowledge of the immigration process, made all the difference. I'm extremely satisfied with the results and their unmatched service in international recruitment."
     },
     {
       name: "John Adebayo",
       country: "NIGERIA",
-      text: "Global Relations provided exceptional support in securing my European work permit. My consultant was highly professional, ensuring all my immigration documents were in perfect order. Her patience and clear communication throughout the work visa process were invaluable. I'm incredibly grateful for her meticulous guidance and outstanding recruitment assistance."
+      text: "Orrionstars Global UG provided exceptional support in securing my European work permit. My consultant was highly professional, ensuring all my immigration documents were in perfect order. Her patience and clear communication throughout the work visa process were invaluable. I'm incredibly grateful for her meticulous guidance and outstanding recruitment assistance."
     },
     {
       name: "Muhammad Ali",
       country: "PAKISTAN",
-      text: "Global Relations exceeded my expectations in obtaining a European work visa. Their attention to detail and commitment to my success were remarkable. The team's expert knowledge of international recruitment and proactive approach made the entire process stress-free and efficient. I'm genuinely impressed by their ability to handle everything with such care."
+      text: "Orrionstars Global UG exceeded my expectations in obtaining a European work visa. Their attention to detail and commitment to my success were remarkable. The team's expert knowledge of international recruitment and proactive approach made the entire process stress-free and efficient. I'm genuinely impressed by their ability to handle everything with such care."
     },
     {
       name: "Sofia Chen",
       country: "CHINA",
-      text: "Working with Global Relations on my European work visa was a pleasure. They made a complex and overwhelming process incredibly straightforward. The team's consistent communication, attention to detail, and expertise in international recruitment gave me complete confidence in their services. I highly recommend them for any work permit needs."
+      text: "Working with Orrionstars Global UG on my European work visa was a pleasure. They made a complex and overwhelming process incredibly straightforward. The team's consistent communication, attention to detail, and expertise in international recruitment gave me complete confidence in their services. I highly recommend them for any work permit needs."
     },
     {
       name: "Emmanuel Kwame",
       country: "GHANA",
-      text: "My experience with Global Relations was excellent. Their prompt responses and consistent follow-ups on my European work visa application were impressive. The team's dedication is evident, and I wholeheartedly wish them continued success. Their professionalism in handling international recruitment and immigration services made all the difference in my journey."
+      text: "My experience with Orrionstars Global UG was excellent. Their prompt responses and consistent follow-ups on my European work visa application were impressive. The team's dedication is evident, and I wholeheartedly wish them continued success. Their professionalism in handling international recruitment and immigration services made all the difference in my journey."
     },
     {
       name: "Ananya Patel",
       country: "INDIA",
-      text: "Global Relations transformed my career journey to Europe with their exceptional visa support services. Their profound knowledge of immigration regulations and personalized guidance were outstanding. The consultants maintained timely communication throughout the process, addressing all my concerns promptly. I highly recommend their services for a seamless international career transition."
+      text: "Orrionstars Global UG transformed my career journey to Europe with their exceptional visa support services. Their profound knowledge of immigration regulations and personalized guidance were outstanding. The consultants maintained timely communication throughout the process, addressing all my concerns promptly. I highly recommend their services for a seamless international career transition."
     },
     {
       name: "Carlos Rodriguez",
       country: "MEXICO",
-      text: "I cannot praise Global Relations enough for their remarkable assistance with my European work permit. Their team demonstrated exceptional expertise in navigating the complex immigration landscape. Their step-by-step guidance, transparent communication, and unwavering support made what seemed impossible become a reality. They are truly masters of international recruitment."
+      text: "I cannot praise Orrionstars Global UG enough for their remarkable assistance with my European work permit. Their team demonstrated exceptional expertise in navigating the complex immigration landscape. Their step-by-step guidance, transparent communication, and unwavering support made what seemed impossible become a reality. They are truly masters of international recruitment."
     },
     {
       name: "Elena Petrova",
       country: "RUSSIA",
-      text: "Working with Global Relations was a game-changer for my career. Their dedicated team helped me secure a work permit for Germany with remarkable efficiency. Every step was clearly explained, and they were always available to answer my questions. Their personalized approach and attention to detail truly set them apart from other recruitment agencies."
+      text: "Working with Orrionstars Global UG was a game-changer for my career. Their dedicated team helped me secure a work permit for Germany with remarkable efficiency. Every step was clearly explained, and they were always available to answer my questions. Their personalized approach and attention to detail truly set them apart from other recruitment agencies."
     },
     {
       name: "Takashi Yamamoto",
       country: "JAPAN",
-      text: "Global Relations offered outstanding support throughout my European work permit application process. Their consultants' expertise in immigration regulations and thorough understanding of cross-cultural employment needs were impressive. The seamless coordination and constant updates made a potentially stressful process remarkably smooth."
+      text: "Orrionstars Global UG offered outstanding support throughout my European work permit application process. Their consultants' expertise in immigration regulations and thorough understanding of cross-cultural employment needs were impressive. The seamless coordination and constant updates made a potentially stressful process remarkably smooth."
     },
     {
       name: "Maria Garcia",
       country: "COLOMBIA",
-      text: "I'm thoroughly impressed with Global Relations' services. Their professional team guided me through the work permit process with patience and expertise. They were consistently responsive, addressing all my concerns promptly. Their deep understanding of European immigration systems and requirements ensured my application was successful on the first attempt."
+      text: "I'm thoroughly impressed with Orrionstars Global UG' services. Their professional team guided me through the work permit process with patience and expertise. They were consistently responsive, addressing all my concerns promptly. Their deep understanding of European immigration systems and requirements ensured my application was successful on the first attempt."
     }
   ];
   
@@ -261,11 +261,11 @@ useEffect(() => {
           </div>
           <div className="flex flex-wrap">
             <div className="flex items-center mr-6">
-              <span className="text-sm">US:</span>
-              <a href="tel:+12407266550" className="ml-1 text-sm hover:text-blue-600 transition-colors">+1 240 726 6550</a>
+              <span className="text-sm">Germany:</span>
+              <a href="tel:+491551128540" className="ml-1 text-sm hover:text-blue-600 transition-colors">+49 155 112 8540</a>
             </div>
             <div className="flex items-center">
-              <span className="text-sm">Germany:</span>
+              <span className="text-sm">India:</span>
               <a href="tel:+919810383802" className="ml-1 text-sm hover:text-blue-600 transition-colors">+91 981 038 3802</a>
             </div>
           </div>
@@ -283,7 +283,7 @@ useEffect(() => {
             backgroundClip: 'text',
             textFillColor: 'transparent'
           }}>
-            GLOBAL RELATIONS
+            Orrionstars Global UG
           </div>
           <div className="hidden md:flex space-x-6">
           <button 
@@ -423,7 +423,7 @@ useEffect(() => {
           letterSpacing: '-0.02em',
           textShadow: '0 4px 8px rgba(0,0,0,0.3)'
         }}>
-          Welcome To Global Relations
+          Welcome To Orrionstars Global UG
         </h1>
         <p className="mb-10 text-white/90 drop-shadow-md" style={{
           fontFamily: typography.body.fontFamily,
@@ -585,7 +585,7 @@ useEffect(() => {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
           textFillColor: 'transparent'
-        }}>About Global Relations</h2>
+        }}>About Orrionstars Global UG</h2>
         
         <div className="max-w-4xl mx-auto">
           <p className="mb-8" style={{
@@ -594,7 +594,7 @@ useEffect(() => {
             lineHeight: '1.8',
             color: colorPalette.neutrals.darkGray
           }}>
-            Global Relations specializes in linking top European talent with global opportunities, focusing on candidates from Asia and the Middle East. Our expert recruiters work closely with businesses to identify the right candidates and understand their unique needs. For job seekers, we offer career counseling, interview preparation, and resume writing services to support their professional journey. We are committed to excellence and building long-term partnerships, helping both businesses and professionals achieve their full potential.
+            Orrionstars Global UG specializes in linking top European talent with global opportunities, focusing on candidates from Asia and the Middle East. Our expert recruiters work closely with businesses to identify the right candidates and understand their unique needs. For job seekers, we offer career counseling, interview preparation, and resume writing services to support their professional journey. We are committed to excellence and building long-term partnerships, helping both businesses and professionals achieve their full potential.
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -1141,7 +1141,7 @@ useEffect(() => {
         lineHeight: '1.7',
         color: colorPalette.neutrals.darkGray
       }}>
-        Global Relations uses a very simple and fast approach in order to provide the client with a business invitation through the license obtained for the client. The following steps or process makes it easier to reach the goal of getting the business visa.
+        Orrionstars Global UG uses a very simple and fast approach in order to provide the client with a business invitation through the license obtained for the client. The following steps or process makes it easier to reach the goal of getting the business visa.
       </p>
       
       <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -1724,7 +1724,7 @@ useEffect(() => {
               }}>Contact</h3>
               <p className="mb-4" style={{ fontFamily: typography.body.fontFamily }}>
                 <strong>HEAD OFFICE:</strong><br/>
-                Global Relations<br/>
+                Orrionstars Global UG<br/>
                 Ebertshauser Haupststr 18<br/>
                 98544 Zella-Mehlis<br/>
                 Germany
@@ -1733,25 +1733,25 @@ useEffect(() => {
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Phone className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +91 981 038 3802</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 157 569 1452</p>
               </div>
               <div className="flex items-center mb-2">
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Phone className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>United States:</strong> +1 240 726 6550</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 155 112 8540</p>
               </div>
               <div className="flex items-center mb-2">
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Phone className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>India:</strong> +91 828 691 2345</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>India:</strong> +91 981 038 3802</p>
               </div>
               <div className="flex items-center mb-4">
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Mail className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Email:</strong> globalrelations2@gmail.com</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Email:</strong> info@orrionstarsglobal.com</p>
               </div>
             </div>
           </div>
@@ -1762,7 +1762,7 @@ useEffect(() => {
       <footer className="bg-blue-900 bg-opacity-95 backdrop-filter backdrop-blur-md text-white py-6">
         <div className="container mx-auto px-4">
           <p className="text-center" style={{ fontFamily: typography.body.fontFamily }}>
-            Copyright © 2025 Global Relations. All rights reserved.
+            Copyright © 2025 Orrionstars Global UG. All rights reserved.
           </p>
         </div>
       </footer>
@@ -1770,7 +1770,7 @@ useEffect(() => {
       {/* WhatsApp Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <a 
-          href="https://wa.me/+12407266550" 
+          href="https://wa.me/+491551128540" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300"
