@@ -415,6 +415,12 @@ useEffect(() => {
              backdropFilter: 'blur(20px)',
              background: 'rgba(255, 255, 255, 0.15)'
            }}>
+                    <img 
+          src="/images/logo.png" 
+          alt="Orrionstars Global UG Logo" 
+          className="mx-auto mb-0 h-64 sm:h-80 object-contain drop-shadow-lg" 
+          style={{ filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }}
+        />
         <h1 className="mb-6 text-white drop-shadow-lg" style={{
           fontFamily: typography.headings.fontFamily,
           fontSize: 'clamp(2.5rem, 5vw, 4rem)',
@@ -1757,7 +1763,34 @@ useEffect(() => {
           </div>
         </div>
       </section>
-
+      
+      {/* Footer Logo with Ethereal Glow Effect - Adjusted for White Background */}
+      <div className="bg-white bg-opacity-90 backdrop-filter backdrop-blur-md py-4"> {/* Explicitly set white background and reduced padding */}
+        <div className="flex justify-center relative z-10 w-full">
+          {/* Container for the glowing logo */}
+          <div className="relative w-full max-w-xs flex justify-center items-center">
+            {/* Subtle light burst/glow effect behind the logo */}
+            <div 
+              className="absolute inset-0 bg-blue-300 rounded-full blur-3xl opacity-30 animate-pulse-slow pointer-events-none"
+              style={{ 
+                width: '120%', 
+                height: '120%', 
+                top: '-10%', 
+                left: '-10%',
+                background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)'
+              }}
+            ></div>
+            <img 
+              src="/images/logo.png" 
+              alt="Orrionstars Global UG Logo" 
+              className="relative z-20 h-28 sm:h-32 object-contain" 
+              style={{ 
+                filter: 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.4))' 
+              }}
+            />
+          </div>
+        </div>
+      </div>
       {/* Footer */}
       <footer className="bg-blue-900 bg-opacity-95 backdrop-filter backdrop-blur-md text-white py-6">
         <div className="container mx-auto px-4">
