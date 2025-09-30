@@ -45,79 +45,25 @@ const [isPaused, setIsPaused] = useState(false);
 const [animationDirection, setAnimationDirection] = useState('next');
 const slideRef = useRef(null);
 const [activePage, setActivePage] = useState('home');
+const heroImages = [ // New array for image paths
+  '/images/hero/hero-main.jpg',
+  '/images/hero/hero-alt1.jpg', // Make sure you have this image
+  '/images/hero/hero-alt2.jpg', // Make sure you have this image
+  '/images/hero/hero-alt3.jpg',
+];
 
+const [currentHeroImageIndex, setCurrentHeroImageIndex] = useState(0);
+const [slideDirection, setSlideDirection] = useState('next'); // New state to control slide direction
 
+  // Auto-rotate hero images with slide animation
+useEffect(() => {
+  const heroInterval = setInterval(() => {
+    setSlideDirection('next'); // Always go 'next' for auto-rotation
+    setCurrentHeroImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+  }, 8000); // 8 seconds per image cycle (including animation time)
 
-  
-  // Observer setup to track current section for background changes and animations
-  useEffect(() => {
-    // Handle scroll events for navbar style changes
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Set up intersection observer for sections
-    const sections = document.querySelectorAll('section[id]');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          
-          // Update current section for background
-          switch(id) {
-            case 'home':
-              setCurrentSection('hero');
-              break;
-            case 'hr-services':
-              setCurrentSection('services');
-              break;
-            case 'testimonials':
-              setCurrentSection('testimonials');
-              break;
-            case 'contact':
-              setCurrentSection('contact');
-              break;
-            default:
-              setCurrentSection('default');
-          }
-          
-          // Mark section as visible for animations
-          setVisibleElements(prev => ({
-            ...prev,
-            [id]: true
-          }));
-        }
-      });
-    }, { threshold: 0.3 });
-    
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-    
-    // Set up observer for animate-on-scroll elements
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    const elementObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    animatedElements.forEach(el => {
-      elementObserver.observe(el);
-    });
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      sections.forEach(section => observer.unobserve(section));
-      animatedElements.forEach(el => elementObserver.unobserve(el));
-    };
-  }, []);
+  return () => clearInterval(heroInterval);
+}, [heroImages.length, currentHeroImageIndex]); // Dependencies adjusted
   
   const testimonials = [
     {
@@ -275,15 +221,30 @@ useEffect(() => {
       {/* Navigation */}
       <nav className={`bg-white bg-opacity-95 backdrop-filter backdrop-blur-md shadow-md sticky top-10 z-40 transition-all duration-300 ${scrolled ? 'py-3' : 'py-4'}`}>
         <div className="container mx-auto px-4 flex flex-wrap justify-between items-center">
-          <div className="text-2xl font-bold" style={{ 
-            fontFamily: typography.headings.fontFamily, 
-            background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            textFillColor: 'transparent'
-          }}>
-            Orrionstars Global UG
+        <div className="relative group"> {/* Add relative and group classes */}
+            {/* The glow effect for the text logo */}
+            <div 
+              className="absolute inset-0 bg-blue-300 rounded-full blur-xl opacity-0 group-hover:opacity-40 animate-pulse-slow pointer-events-none transition-opacity duration-500"
+              style={{ 
+                width: '100%', // Adjust size as needed
+                height: '100%', 
+                top: '0', 
+                left: '0',
+                background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)',
+                transform: 'scale(1.2)' // Make the glow slightly larger than the text
+              }}
+            ></div>
+            <div className="text-2xl font-bold relative z-10" style={{ // Add relative z-10
+              fontFamily: typography.headings.fontFamily, 
+              background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textFillColor: 'transparent',
+              textShadow: '0 0 10px rgba(59, 130, 246, 0.6)' // Enhanced text shadow for a subtle glow
+            }}>
+              Orrionstars Global UG
+            </div>
           </div>
           <div className="hidden md:flex space-x-6">
           <button 
@@ -355,16 +316,26 @@ useEffect(() => {
   <>
     {/* Hero Section with Layered Backgrounds */}
 <section id="home" className="relative py-32 overflow-hidden min-h-screen flex items-center">
-  {/* Background Layer 1 - Main Image */}
-  <div className="absolute inset-0 z-0">
-    <img 
-      src="/images/hero/hero-main.jpg" 
-      alt="Global Relations Background"
-      className="w-full h-full object-cover"
+          {/* Background Layer 1 - Main Image */}
+<div className="absolute inset-0 z-0 overflow-hidden">
+  {heroImages.map((image, index) => (
+    <img
+      key={index} // Unique key for each image
+      src={image}
+      alt={`Hero background ${index + 1}`}
+      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
+                  ${index === currentHeroImageIndex ? 'opacity-100 transform translate-x-0' : 'opacity-0'}
+                  ${index === currentHeroImageIndex && slideDirection === 'next' ? 'animate-slideInRightFrame' : ''}
+                  ${index === currentHeroImageIndex && slideDirection === 'prev' ? 'animate-slideInLeftFrame' : ''}
+                  ${index !== currentHeroImageIndex && slideDirection === 'next' ? 'animate-slideOutLeftFrame' : ''}
+                  ${index !== currentHeroImageIndex && slideDirection === 'prev' ? 'animate-slideOutRightFrame' : ''}
+                  `}
+      style={{ animationDuration: '0.7s', transitionDuration: '0.7s', zIndex: index === currentHeroImageIndex ? 2 : 1 }}
     />
-    {/* Minimal Gradient Overlays for Better Text Readability */}
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/15 via-blue-600/10 to-blue-900/15"></div>
-  </div>
+  ))}
+  {/* Minimal Gradient Overlays for Better Text Readability */}
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/15 via-blue-600/10 to-blue-900/15"></div>
+</div>
   
   {/* Background Layer 2 - Floating Elements */}
   <div className="absolute inset-0 z-1">
@@ -415,12 +386,28 @@ useEffect(() => {
              backdropFilter: 'blur(20px)',
              background: 'rgba(255, 255, 255, 0.15)'
            }}>
-                    <img 
-          src="/images/logo.png" 
-          alt="Orrionstars Global UG Logo" 
-          className="mx-auto mb-0 h-64 sm:h-80 object-contain drop-shadow-lg" 
-          style={{ filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }}
-        />
+                            {/* Container for the glowing logo */}
+        <div className="relative w-full max-w-xs mx-auto flex justify-center items-center mb-0 h-64 sm:h-80"> {/* Adjusted size and positioning */}
+          {/* Subtle light burst/glow effect behind the logo */}
+          <div 
+            className="absolute inset-0 bg-blue-300 rounded-full blur-3xl opacity-30 animate-pulse-slow pointer-events-none"
+            style={{ 
+              width: '120%', 
+              height: '120%', 
+              top: '-10%', 
+              left: '-10%',
+              background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)'
+            }}
+          ></div>
+          <img 
+            src="/images/logo.png" 
+            alt="Orrionstars Global UG Logo" 
+            className="relative z-20 h-full w-full object-contain" // Use h-full, w-full here
+            style={{ 
+              filter: 'drop-shadow(0 0 25px rgba(59, 130, 246, 0.7))' // Stronger blue glow
+            }}
+          />
+        </div>
         <h1 className="mb-6 text-white drop-shadow-lg" style={{
           fontFamily: typography.headings.fontFamily,
           fontSize: 'clamp(2.5rem, 5vw, 4rem)',
@@ -1855,6 +1842,21 @@ useEffect(() => {
         @keyframes shimmer {
           0% { background-position: -1000px 0; }
           100% { background-position: 1000px 0; }
+        }
+
+                                /* New Hero Image Slide Animations */
+        @keyframes slideOutLeftFrame {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(-100%); opacity: 0; } /* Use opacity: 0 here to truly hide it */
+        }
+        @keyframes slideInRightFrame {
+          from { transform: translateX(100%); opacity: 0; } /* Start off-screen and invisible */
+          to { transform: translateX(0); opacity: 1; } /* End on-screen and visible */
+        }
+
+                @keyframes animate-pulse-slow {
+          0%, 100% { opacity: 0.3; transform: scale(1.0); }
+          50% { opacity: 0.5; transform: scale(1.05); }
         }
         
         .animate-visible {
