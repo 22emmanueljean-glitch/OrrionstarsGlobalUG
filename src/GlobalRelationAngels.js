@@ -60,7 +60,7 @@ useEffect(() => {
   const heroInterval = setInterval(() => {
     setSlideDirection('next'); // Always go 'next' for auto-rotation
     setCurrentHeroImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-  }, 8000); // 8 seconds per image cycle (including animation time)
+  }, 7000); // 10 seconds per image cycle (including animation time)
 
   return () => clearInterval(heroInterval);
 }, [heroImages.length, currentHeroImageIndex]); // Dependencies adjusted
@@ -206,13 +206,23 @@ useEffect(() => {
             <a href="#faq" className="text-sm hover:text-blue-600 transition-colors">FAQ</a>
           </div>
           <div className="flex flex-wrap">
-            <div className="flex items-center mr-6">
-              <span className="text-sm">Germany:</span>
-              <a href="tel:+491551128540" className="ml-1 text-sm hover:text-blue-600 transition-colors">+49 155 112 8540</a>
-            </div>
-            <div className="flex items-center">
-              <span className="text-sm">India:</span>
-              <a href="tel:+919810383802" className="ml-1 text-sm hover:text-blue-600 transition-colors">+91 981 038 3802</a>
+          <div className="flex flex-wrap">
+              <div className="flex items-center mr-6">
+                <span className="text-sm">Germany:</span>
+                <a href="tel:+491551128540" className="ml-1 text-sm hover:text-blue-600 transition-colors">+49 155 112 8540</a>
+              </div>
+              <div className="flex items-center mr-6">
+                <span className="text-sm">Germany:</span>
+                <a href="tel:+4915511287417" className="ml-1 text-sm hover:text-blue-600 transition-colors">+49 15511 287417</a>
+              </div>
+              <div className="flex items-center mr-6"> {/* Added mr-6 for consistency */}
+                <span className="text-sm">Germany:</span>
+                <a href="tel:+491575691452" className="ml-1 text-sm hover:text-blue-600 transition-colors">+49 157 569 1452</a>
+              </div>
+              <div className="flex items-center">
+                <span className="text-sm">India:</span>
+                <a href="tel:+919810383802" className="ml-1 text-sm hover:text-blue-600 transition-colors">+91 981 038 3802</a>
+              </div>
             </div>
           </div>
         </div>
@@ -315,27 +325,30 @@ useEffect(() => {
 {activePage === 'home' ? (
   <>
     {/* Hero Section with Layered Backgrounds */}
-<section id="home" className="relative py-32 overflow-hidden min-h-screen flex items-center">
-          {/* Background Layer 1 - Main Image */}
-<div className="absolute inset-0 z-0 overflow-hidden">
-  {heroImages.map((image, index) => (
-    <img
-      key={index} // Unique key for each image
-      src={image}
-      alt={`Hero background ${index + 1}`}
-      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out
-                  ${index === currentHeroImageIndex ? 'opacity-100 transform translate-x-0' : 'opacity-0'}
-                  ${index === currentHeroImageIndex && slideDirection === 'next' ? 'animate-slideInRightFrame' : ''}
-                  ${index === currentHeroImageIndex && slideDirection === 'prev' ? 'animate-slideInLeftFrame' : ''}
-                  ${index !== currentHeroImageIndex && slideDirection === 'next' ? 'animate-slideOutLeftFrame' : ''}
-                  ${index !== currentHeroImageIndex && slideDirection === 'prev' ? 'animate-slideOutRightFrame' : ''}
-                  `}
-      style={{ animationDuration: '0.7s', transitionDuration: '0.7s', zIndex: index === currentHeroImageIndex ? 2 : 1 }}
-    />
-  ))}
-  {/* Minimal Gradient Overlays for Better Text Readability */}
-  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/15 via-blue-600/10 to-blue-900/15"></div>
-</div>
+    <section id="home" className="relative py-32 overflow-hidden min-h-screen flex items-center">
+                {/* Background Layer 1 - Main Image with Enhanced Transitions */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+            {heroImages.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Hero background ${index + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover transform
+                            transition-all duration-1000 ease-in-out
+                            ${index === currentHeroImageIndex 
+                                ? 'opacity-100 scale-110' 
+                                : 'opacity-0 scale-100'}`}
+                style={{ 
+                  zIndex: index === currentHeroImageIndex ? 2 : 1, // Ensure active image is on top
+                  transitionDelay: index === currentHeroImageIndex ? '0s' : '0.2s', // Small delay for outgoing
+                  animation: index === currentHeroImageIndex ? 'backgroundPulseZoom 7s ease-in-out infinite' : 'none'
+                }}
+              />
+            ))}
+            {/* Richer Gradient Overlays for Depth and Readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-950/40 via-blue-800/20 to-blue-950/40 opacity-100"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-100"></div>
+          </div>
   
   {/* Background Layer 2 - Floating Elements */}
   <div className="absolute inset-0 z-1">
@@ -368,10 +381,15 @@ useEffect(() => {
   </div>
   
   {/* Animated Particles/Dots */}
-  <div className="absolute inset-0 z-2">
-    <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-300 rounded-full opacity-60 animate-ping"></div>
-    <div className="absolute top-3/4 right-1/3 w-2 h-2 bg-white rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
-    <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-blue-200 rounded-full opacity-50 animate-bounce" style={{animationDelay: '3s'}}></div>
+  <div className="absolute inset-0 z-2 pointer-events-none">
+    {/* Subtle, numerous shimmering particles */}
+    <div className="absolute top-[10%] left-[10%] w-1 h-1 bg-white rounded-full opacity-30 animate-pulse-small" style={{animationDelay: '0s'}}></div>
+    <div className="absolute top-[20%] right-[15%] w-1 h-1 bg-blue-200 rounded-full opacity-40 animate-pulse-small" style={{animationDelay: '1s'}}></div>
+    <div className="absolute bottom-[25%] left-[20%] w-1 h-1 bg-white rounded-full opacity-25 animate-pulse-small" style={{animationDelay: '2s'}}></div>
+    <div className="absolute top-[50%] right-[30%] w-1 h-1 bg-blue-300 rounded-full opacity-35 animate-pulse-small" style={{animationDelay: '3s'}}></div>
+    <div className="absolute bottom-[15%] right-[5%] w-1 h-1 bg-white rounded-full opacity-30 animate-pulse-small" style={{animationDelay: '4s'}}></div>
+    <div className="absolute top-[35%] left-[45%] w-1 h-1 bg-blue-200 rounded-full opacity-20 animate-pulse-small" style={{animationDelay: '5s'}}></div>
+    <div className="absolute bottom-[40%] left-[5%] w-1 h-1 bg-white rounded-full opacity-30 animate-pulse-small" style={{animationDelay: '6s'}}></div>
   </div>
 
   {/* Main Content */}
@@ -1416,6 +1434,46 @@ useEffect(() => {
       from { transform: translateX(-30px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
+      @keyframes backgroundPulseZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); } /* Zooms in */
+  100% { transform: scale(1); } /* Zooms back out gently */
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  25% { transform: translateY(-8px) rotate(10deg); }
+  50% { transform: translateY(0) rotate(6deg); }
+  75% { transform: translateY(8px) rotate(9deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.03); opacity: 0.18; }
+}
+
+@keyframes pulse-small {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+}
+
+@keyframes blob-one {
+  0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+  33% { transform: translateX(-20px) translateY(15px) scale(1.05); }
+  66% { transform: translateX(10px) translateY(-10px) scale(0.98); }
+}
+
+@keyframes blob-two {
+  0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+  40% { transform: translateX(15px) translateY(-20px) scale(0.95); }
+  80% { transform: translateX(-10px) translateY(10px) scale(1.02); }
+}
+
+@keyframes blob-three {
+  0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+  20% { transform: translateX(10px) translateY(5px) scale(1.01); }
+  70% { transform: translateX(-15px) translateY(-15px) scale(0.99); }
+}
   `
 }} />
 </section>
@@ -1726,13 +1784,19 @@ useEffect(() => {
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Phone className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 157 569 1452</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 155 112 8540</p>
               </div>
               <div className="flex items-center mb-2">
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
                   <Phone className="w-full h-full" />
                 </div>
-                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 155 112 8540</p>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 15511 287417</p>
+              </div>
+              <div className="flex items-center mb-2">
+                <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
+                  <Phone className="w-full h-full" />
+                </div>
+                <p style={{ fontFamily: typography.body.fontFamily }}><strong>Germany:</strong> +49 157 569 1452</p>
               </div>
               <div className="flex items-center mb-2">
                 <div className="w-5 h-5 mr-2 flex-shrink-0 text-blue-600">
@@ -1844,15 +1908,18 @@ useEffect(() => {
           100% { background-position: 1000px 0; }
         }
 
-                                /* New Hero Image Slide Animations */
-        @keyframes slideOutLeftFrame {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(-100%); opacity: 0; } /* Use opacity: 0 here to truly hide it */
-        }
-        @keyframes slideInRightFrame {
-          from { transform: translateX(100%); opacity: 0; } /* Start off-screen and invisible */
-          to { transform: translateX(0); opacity: 1; } /* End on-screen and visible */
-        }
+                                /* New Hero Image Slide Animations for push effect */
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  1% { opacity: 1; } /* Make visible quickly to start slide */
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); opacity: 1; }
+  99% { opacity: 1; } /* Keep visible until almost out */
+  100% { transform: translateX(-100%); opacity: 0; }
+}
 
                 @keyframes animate-pulse-slow {
           0%, 100% { opacity: 0.3; transform: scale(1.0); }
