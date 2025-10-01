@@ -350,36 +350,6 @@ useEffect(() => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-100"></div>
           </div>
   
-  {/* Background Layer 2 - Floating Elements */}
-  <div className="absolute inset-0 z-1">
-    {/* Germany themed image - top right */}
-    <div className="absolute top-10 right-10 w-64 h-48 opacity-20 transform rotate-12 animate-float">
-      <img 
-        src="/images/hero/hero-germany.jpg" 
-        alt="Germany"
-        className="w-full h-full object-cover rounded-xl shadow-2xl"
-      />
-    </div>
-    
-    {/* Europe themed image - bottom left */}
-    <div className="absolute bottom-20 left-10 w-48 h-36 opacity-25 transform -rotate-6 animate-float" style={{animationDelay: '2s'}}>
-      <img 
-        src="/images/hero/hero-europe.jpg" 
-        alt="Europe"
-        className="w-full h-full object-cover rounded-xl shadow-2xl"
-      />
-    </div>
-    
-    {/* People overlay - center right */}
-    <div className="absolute top-1/4 right-1/4 w-80 h-60 opacity-15 transform rotate-3 animate-pulse">
-      <img 
-        src="/images/hero/hero-people.jpg" 
-        alt="Professional Team"
-        className="w-full h-full object-cover rounded-2xl shadow-xl"
-      />
-    </div>
-  </div>
-  
   {/* Animated Particles/Dots */}
   <div className="absolute inset-0 z-2 pointer-events-none">
     {/* Subtle, numerous shimmering particles */}
@@ -395,78 +365,75 @@ useEffect(() => {
   {/* Main Content */}
   <div className="container mx-auto px-4 relative z-10">
     <div className="max-w-4xl mx-auto text-center">
-      <div className="animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 ease-out" 
-           style={{ 
-             ...glassMorphism.medium, 
-             borderRadius: '1rem',
-             padding: '3.5rem 2.5rem',
-             boxShadow: shadows.xl,
-             backdropFilter: 'blur(20px)',
-             background: 'rgba(255, 255, 255, 0.15)'
-           }}>
-                            {/* Container for the glowing logo */}
-        <div className="relative w-full max-w-xs mx-auto flex justify-center items-center mb-0 h-64 sm:h-80"> {/* Adjusted size and positioning */}
-          {/* Subtle light burst/glow effect behind the logo */}
-          <div 
-            className="absolute inset-0 bg-blue-300 rounded-full blur-3xl opacity-30 animate-pulse-slow pointer-events-none"
-            style={{ 
-              width: '120%', 
-              height: '120%', 
-              top: '-10%', 
-              left: '-10%',
-              background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)'
-            }}
-          ></div>
-          <img 
-            src="/images/logo.png" 
-            alt="Orrionstars Global UG Logo" 
-            className="relative z-20 h-full w-full object-contain" // Use h-full, w-full here
-            style={{ 
-              filter: 'drop-shadow(0 0 25px rgba(59, 130, 246, 0.7))' // Stronger blue glow
-            }}
-          />
-        </div>
-        <h1 className="mb-6 text-white drop-shadow-lg" style={{
-          fontFamily: typography.headings.fontFamily,
-          fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-          fontWeight: typography.headings.weights.black,
-          lineHeight: '1.1',
-          letterSpacing: '-0.02em',
-          textShadow: '0 4px 8px rgba(0,0,0,0.3)'
-        }}>
-          Welcome To Orrionstars Global UG
-        </h1>
-        <p className="mb-10 text-white/90 drop-shadow-md" style={{
-          fontFamily: typography.body.fontFamily,
-          fontSize: 'clamp(1.125rem, 1.2vw, 1.25rem)',
-          lineHeight: '1.6',
-          textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-        }}>
-          Based in Germany, our leading recruitment firm connects top talent with exceptional opportunities. Our multilingual consultants have successfully placed senior managers, professionals, and executives, ensuring the perfect match for both candidates and employers.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <a href="#about" 
-             className="transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
-             style={{
-               background: 'rgba(255, 255, 255, 0.9)',
-               color: colorPalette.blues.primary,
-               fontWeight: typography.headings.weights.semibold,
-               padding: '0.75rem 1.5rem',
-               borderRadius: '0.5rem',
-               backdropFilter: 'blur(10px)'
-             }}>About Us</a>
-          <a href="#contact" 
-             className="transform hover:-translate-y-1 hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-             style={{
-               border: '2px solid rgba(255, 255, 255, 0.8)',
-               color: 'white',
-               fontWeight: typography.headings.weights.semibold,
-               padding: '0.75rem 1.5rem',
-               borderRadius: '0.5rem',
-               backdropFilter: 'blur(10px)'
-             }}>Contact Us</a>
-        </div>
-      </div>
+    <div className="animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 ease-out">
+  {/* Container for the glowing logo */}
+  <div className="relative w-full max-w-xs mx-auto flex justify-center items-center mb-0 h-64 sm:h-80">
+    {/* Subtle light burst/glow effect behind the logo */}
+    <div
+      className="absolute inset-0 bg-blue-300 rounded-full blur-3xl opacity-30 animate-pulse-slow pointer-events-none"
+      style={{
+        width: '120%',
+        height: '120%',
+        top: '-10%',
+        left: '-10%',
+        background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)'
+      }}
+    ></div>
+    <img
+      src="/images/logo.png"
+      alt="Orrionstars Global UG Logo"
+      className="relative z-20 h-full w-full object-contain"
+      style={{
+        filter: 'drop-shadow(0 0 25px rgba(59, 130, 246, 0.7))'
+      }}
+    />
+  </div>
+  <div className="flex flex-col h-full"> {/* Added flex-col and h-full */}
+  <div className="flex-grow flex flex-col justify-center items-center"> {/* Centers content vertically and pushes links down */}
+    <h1 className="mb-6 text-white drop-shadow-lg" style={{
+        fontFamily: typography.headings.fontFamily,
+        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+        fontWeight: typography.headings.weights.black,
+        lineHeight: '1.1',
+        letterSpacing: '-0.02em',
+        textShadow: '0 4px 8px rgba(0,0,0,0.3)'
+      }}>
+        Welcome To Orrionstars Global UG
+      </h1>
+      <p className="mb-10 text-white drop-shadow-lg max-w-2xl" style={{ // Added max-w-2xl for better readability on large screens
+        fontFamily: typography.body.fontFamily,
+        fontSize: 'clamp(1.125rem, 1.2vw, 1.25rem)',
+        lineHeight: '1.6',
+        fontWeight: typography.body.weights.medium,
+        textShadow: '0px 2px 6px rgba(0,0,0,0.5), 0px 0px 10px rgba(0,0,0,0.2)'
+      }}>
+        Based in Germany, our leading recruitment firm connects top talent with exceptional opportunities. Our multilingual consultants have successfully placed senior managers, professionals, and executives, ensuring the perfect match for both candidates and employers.
+      </p>
+  </div>
+  <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 pb-16"> {/* Added pb-16 for padding from the very bottom */}
+    <a href="#about"
+      className="transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+      style={{
+        background: 'rgba(255, 255, 255, 0.9)',
+        color: colorPalette.blues.primary,
+        fontWeight: typography.headings.weights.semibold,
+        padding: '0.75rem 1.5rem',
+        borderRadius: '0.5rem',
+        backdropFilter: 'blur(10px)'
+      }}>About Us</a>
+    <a href="#contact"
+      className="transform hover:-translate-y-1 hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+      style={{
+        border: '2px solid rgba(255, 255, 255, 0.8)',
+        color: 'white',
+        fontWeight: typography.headings.weights.semibold,
+        padding: '0.75rem 1.5rem',
+        borderRadius: '0.5rem',
+        backdropFilter: 'blur(10px)'
+      }}>Contact Us</a>
+  </div>
+</div>
+</div>
     </div>
   </div>
 </section>
@@ -1887,6 +1854,12 @@ useEffect(() => {
           0% { opacity: 0; }
           100% { opacity: 1; }
         }
+
+        @keyframes shimmerOverlay {
+  0% { transform: scale(0.9) translateX(-10%) translateY(-10%); opacity: 0.05; }
+  50% { transform: scale(1.1) translateX(10%) translateY(10%); opacity: 0.15; }
+  100% { transform: scale(0.9) translateX(-10%) translateY(-10%); opacity: 0.05; }
+}
         
         @keyframes slideUp {
           0% { transform: translateY(20px); opacity: 0; }
